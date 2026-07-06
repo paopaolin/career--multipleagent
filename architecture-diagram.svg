@@ -1,0 +1,282 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 1050" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif">
+  <defs>
+    <linearGradient id="bgGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0a0a14"/>
+      <stop offset="100%" stop-color="#0d0d1a"/>
+    </linearGradient>
+    <linearGradient id="userGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1a1a3e"/>
+      <stop offset="100%" stop-color="#1e1e40"/>
+    </linearGradient>
+    <linearGradient id="supervisorGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#2a2410"/>
+      <stop offset="100%" stop-color="#1e1a05"/>
+    </linearGradient>
+    <linearGradient id="agentsGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1a1428"/>
+      <stop offset="100%" stop-color="#1a1028"/>
+    </linearGradient>
+    <linearGradient id="mcpGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0a1a14"/>
+      <stop offset="100%" stop-color="#081a10"/>
+    </linearGradient>
+    <linearGradient id="memoryGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#140a1a"/>
+      <stop offset="100%" stop-color="#100a18"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="shadow">
+      <feDropShadow dx="0" dy="2" stdDeviation="4" flood-opacity="0.3"/>
+    </filter>
+    <marker id="arrowYellow" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#f9e2af" opacity="0.6"/>
+    </marker>
+    <marker id="arrowBlue" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#89b4fa" opacity="0.6"/>
+    </marker>
+    <marker id="arrowGreen" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#a6e3a1" opacity="0.6"/>
+    </marker>
+    <marker id="arrowPurple" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#cba6f7" opacity="0.6"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1400" height="1050" fill="url(#bgGrad)"/>
+
+  <!-- Title -->
+  <text x="700" y="45" text-anchor="middle" fill="#cdd6f4" font-size="24" font-weight="700">
+    职业规划多智能体协同系统 · 架构图
+  </text>
+  <text x="700" y="68" text-anchor="middle" fill="#6c7086" font-size="13">
+    Career Planning Multi-Agent System Architecture · Supervisor Pattern · MCP Protocol
+  </text>
+
+  <!-- ============================================ -->
+  <!-- LAYER 0: USER LAYER -->
+  <!-- ============================================ -->
+  <rect x="30" y="90" width="1340" height="60" rx="10" fill="url(#userGrad)" stroke="#89b4fa" stroke-opacity="0.2" stroke-width="1.5"/>
+  <text x="50" y="120" fill="#89b4fa" font-size="14" font-weight="700" opacity="0.6">👤 用户交互层</text>
+
+  <!-- User input -->
+  <rect x="400" y="105" width="240" height="30" rx="15" fill="#1a1a3e" stroke="#89b4fa" stroke-opacity="0.4" stroke-width="1"/>
+  <text x="520" y="125" text-anchor="middle" fill="#cdd6f4" font-size="12">"我想转AI工程师，帮我规划"</text>
+
+  <rect x="760" y="105" width="240" height="30" rx="15" fill="#1a1a3e" stroke="#89b4fa" stroke-opacity="0.4" stroke-width="1"/>
+  <text x="880" y="125" text-anchor="middle" fill="#cdd6f4" font-size="12">"搜索北京Java高级岗位"</text>
+
+  <!-- Arrow from user to supervisor -->
+  <line x1="700" y1="150" x2="700" y2="180" stroke="#89b4fa" stroke-width="2" stroke-opacity="0.4" marker-end="url(#arrowBlue)" stroke-dasharray="5,3"/>
+
+  <!-- ============================================ -->
+  <!-- LAYER 1: SUPERVISOR LAYER -->
+  <!-- ============================================ -->
+  <rect x="30" y="185" width="1340" height="130" rx="10" fill="url(#supervisorGrad)" stroke="#f9e2af" stroke-opacity="0.2" stroke-width="1.5"/>
+  <text x="50" y="215" fill="#f9e2af" font-size="14" font-weight="700" opacity="0.7">🎯 监督者智能体层 · Supervisor Agent (Claude Fable 5)</text>
+
+  <!-- Supervisor Core -->
+  <rect x="50" y="233" width="200" height="68" rx="8" fill="#1e1a05" stroke="#f9e2af" stroke-opacity="0.5" stroke-width="1.5" filter="url(#glow)"/>
+  <text x="150" y="258" text-anchor="middle" fill="#f9e2af" font-size="14" font-weight="700">🧠 意图理解引擎</text>
+  <text x="150" y="278" text-anchor="middle" fill="#6c7086" font-size="10">Intent Recognition</text>
+
+  <rect x="280" y="233" width="200" height="68" rx="8" fill="#1e1a05" stroke="#f9e2af" stroke-opacity="0.5" stroke-width="1.5"/>
+  <text x="380" y="258" text-anchor="middle" fill="#f9e2af" font-size="14" font-weight="700">📋 任务路由器</text>
+  <text x="380" y="278" text-anchor="middle" fill="#6c7086" font-size="10">Task Router &amp; Dispatcher</text>
+
+  <rect x="510" y="233" width="200" height="68" rx="8" fill="#1e1a05" stroke="#f9e2af" stroke-opacity="0.5" stroke-width="1.5"/>
+  <text x="610" y="258" text-anchor="middle" fill="#f9e2af" font-size="14" font-weight="700">📊 结果合成器</text>
+  <text x="610" y="278" text-anchor="middle" fill="#6c7086" font-size="10">Response Synthesizer</text>
+
+  <rect x="740" y="233" width="200" height="68" rx="8" fill="#1e1a05" stroke="#f9e2af" stroke-opacity="0.5" stroke-width="1.5"/>
+  <text x="840" y="258" text-anchor="middle" fill="#f9e2af" font-size="14" font-weight="700">💾 记忆管理器</text>
+  <text x="840" y="278" text-anchor="middle" fill="#6c7086" font-size="10">Memory Manager</text>
+
+  <!-- Agent spawning label -->
+  <rect x="970" y="238" width="380" height="58" rx="8" fill="#0d0d14" stroke="#f9e2af" stroke-opacity="0.2" stroke-width="1" stroke-dasharray="4,2"/>
+  <text x="1160" y="260" text-anchor="middle" fill="#6c7086" font-size="11">使用 Agent 工具动态生成专家</text>
+  <text x="1160" y="280" text-anchor="middle" fill="#89b4fa" font-size="11" font-family="monospace">agentType: "role-analyzer" | "job-search-agent" | ...</text>
+
+  <!-- Arrows from supervisor to agents -->
+  <line x1="200" y1="315" x2="230" y2="365" stroke="#f9e2af" stroke-width="1.5" stroke-opacity="0.4" marker-end="url(#arrowYellow)"/>
+  <line x1="380" y1="315" x2="380" y2="365" stroke="#f9e2af" stroke-width="1.5" stroke-opacity="0.4" marker-end="url(#arrowYellow)"/>
+  <line x1="550" y1="315" x2="530" y2="365" stroke="#f9e2af" stroke-width="1.5" stroke-opacity="0.4" marker-end="url(#arrowYellow)"/>
+  <line x1="720" y1="315" x2="680" y2="365" stroke="#f9e2af" stroke-width="1.5" stroke-opacity="0.4" marker-end="url(#arrowYellow)"/>
+
+  <!-- ============================================ -->
+  <!-- LAYER 2: EXPERT AGENTS LAYER -->
+  <!-- ============================================ -->
+  <rect x="30" y="370" width="1340" height="200" rx="10" fill="url(#agentsGrad)" stroke="#cba6f7" stroke-opacity="0.2" stroke-width="1.5"/>
+  <text x="50" y="400" fill="#cba6f7" font-size="14" font-weight="700" opacity="0.7">🧠 专家智能体层 · Expert Agents (Claude Sonnet 5) · 并行执行</text>
+
+  <!-- Agent 1: Role Analyzer -->
+  <rect x="50" y="418" width="295" height="135" rx="10" fill="#141428" stroke="#89b4fa" stroke-opacity="0.4" stroke-width="1.5" filter="url(#shadow)"/>
+  <text x="197" y="445" text-anchor="middle" font-size="24">🔍</text>
+  <text x="197" y="468" text-anchor="middle" fill="#89b4fa" font-size="14" font-weight="700">角色分析专家</text>
+  <text x="197" y="485" text-anchor="middle" fill="#6c7086" font-size="10">Role Analyzer</text>
+  <line x1="80" y1="496" x2="314" y2="496" stroke="#89b4fa" stroke-opacity="0.1" stroke-width="1"/>
+  <text x="197" y="514" text-anchor="middle" fill="#a6adc8" font-size="10">技能盘点 → JD需求提取</text>
+  <text x="197" y="530" text-anchor="middle" fill="#a6adc8" font-size="10">差距评估 → 匹配度打分</text>
+  <text x="197" y="546" text-anchor="middle" fill="#6c7086" font-size="9">工具: WebSearch · Memory MCP</text>
+
+  <!-- Agent 2: Job Search -->
+  <rect x="370" y="418" width="295" height="135" rx="10" fill="#141428" stroke="#a6e3a1" stroke-opacity="0.4" stroke-width="1.5" filter="url(#shadow)"/>
+  <text x="517" y="445" text-anchor="middle" font-size="24">💼</text>
+  <text x="517" y="468" text-anchor="middle" fill="#a6e3a1" font-size="14" font-weight="700">求职搜索专家</text>
+  <text x="517" y="485" text-anchor="middle" fill="#6c7086" font-size="10">Job Search Agent</text>
+  <line x1="400" y1="496" x2="634" y2="496" stroke="#a6e3a1" stroke-opacity="0.1" stroke-width="1"/>
+  <text x="517" y="514" text-anchor="middle" fill="#a6adc8" font-size="10">多平台搜索 → 薪资分析</text>
+  <text x="517" y="530" text-anchor="middle" fill="#a6adc8" font-size="10">市场洞察 → 公司研究</text>
+  <text x="517" y="546" text-anchor="middle" fill="#6c7086" font-size="9">工具: 5×MCP · WebSearch</text>
+
+  <!-- Agent 3: Learning Path -->
+  <rect x="690" y="418" width="295" height="135" rx="10" fill="#141428" stroke="#cba6f7" stroke-opacity="0.4" stroke-width="1.5" filter="url(#shadow)"/>
+  <text x="837" y="445" text-anchor="middle" font-size="24">🗺️</text>
+  <text x="837" y="468" text-anchor="middle" fill="#cba6f7" font-size="14" font-weight="700">学习路径规划专家</text>
+  <text x="837" y="485" text-anchor="middle" fill="#6c7086" font-size="10">Learning Path Creator</text>
+  <line x1="720" y1="496" x2="954" y2="496" stroke="#cba6f7" stroke-opacity="0.1" stroke-width="1"/>
+  <text x="837" y="514" text-anchor="middle" fill="#a6adc8" font-size="10">课程推荐 → 时间规划</text>
+  <text x="837" y="530" text-anchor="middle" fill="#a6adc8" font-size="10">项目实践 → 资源清单</text>
+  <text x="837" y="546" text-anchor="middle" fill="#6c7086" font-size="9">工具: WebSearch · WebFetch</text>
+
+  <!-- Agent 4: Interview Prep -->
+  <rect x="1010" y="418" width="340" height="135" rx="10" fill="#141428" stroke="#fab387" stroke-opacity="0.4" stroke-width="1.5" filter="url(#shadow)"/>
+  <text x="1180" y="445" text-anchor="middle" font-size="24">🎤</text>
+  <text x="1180" y="468" text-anchor="middle" fill="#fab387" font-size="14" font-weight="700">面试准备专家</text>
+  <text x="1180" y="485" text-anchor="middle" fill="#6c7086" font-size="10">Interview Preparer</text>
+  <line x1="1035" y1="496" x2="1325" y2="496" stroke="#fab387" stroke-opacity="0.1" stroke-width="1"/>
+  <text x="1180" y="514" text-anchor="middle" fill="#a6adc8" font-size="10">题库生成 → 回答框架</text>
+  <text x="1180" y="530" text-anchor="middle" fill="#a6adc8" font-size="10">模拟脚本 → 准备清单</text>
+  <text x="1180" y="546" text-anchor="middle" fill="#6c7086" font-size="9">工具: Company Research MCP · WebSearch</text>
+
+  <!-- Phase labels -->
+  <text x="197" y="405" text-anchor="middle" fill="#89b4fa" font-size="9" opacity="0.6">阶段1 · 并行</text>
+  <text x="517" y="405" text-anchor="middle" fill="#a6e3a1" font-size="9" opacity="0.6">阶段1 · 并行</text>
+  <text x="837" y="405" text-anchor="middle" fill="#cba6f7" font-size="9" opacity="0.6">阶段2 · 并行</text>
+  <text x="1180" y="405" text-anchor="middle" fill="#fab387" font-size="9" opacity="0.6">阶段2 · 并行</text>
+
+  <!-- Inter-agent arrows (phase dependency) -->
+  <line x1="345" y1="485" x2="370" y2="485" stroke="#cba6f7" stroke-width="1" stroke-opacity="0.3" marker-end="url(#arrowPurple)"/>
+  <line x1="665" y1="485" x2="690" y2="485" stroke="#cba6f7" stroke-width="1" stroke-opacity="0.3" marker-end="url(#arrowPurple)"/>
+
+  <!-- ============================================ -->
+  <!-- LAYER 3: MCP DATA TOOLS LAYER -->
+  <!-- ============================================ -->
+  <rect x="30" y="590" width="1340" height="195" rx="10" fill="url(#mcpGrad)" stroke="#a6e3a1" stroke-opacity="0.2" stroke-width="1.5"/>
+  <text x="50" y="620" fill="#a6e3a1" font-size="14" font-weight="700" opacity="0.7">🔌 MCP 数据工具层 · Model Context Protocol Servers · 5个专用服务器</text>
+
+  <!-- MCP 1: JobDataLake -->
+  <rect x="50" y="640" width="240" height="60" rx="8" fill="#081a10" stroke="#89b4fa" stroke-opacity="0.5" stroke-width="1.5"/>
+  <text x="170" y="662" text-anchor="middle" fill="#89b4fa" font-size="12" font-weight="700">🔵 JobDataLake</text>
+  <text x="170" y="682" text-anchor="middle" fill="#6c7086" font-size="9">1M+ 职位 · 500次/天免费</text>
+  <text x="170" y="695" text-anchor="middle" fill="#a6adc8" font-size="8" font-family="monospace">search_jobs · get_job · get_company</text>
+
+  <!-- MCP 2: HireJack -->
+  <rect x="310" y="640" width="240" height="60" rx="8" fill="#081a10" stroke="#a6e3a1" stroke-opacity="0.5" stroke-width="1.5"/>
+  <text x="430" y="662" text-anchor="middle" fill="#a6e3a1" font-size="12" font-weight="700">🟢 HireJack</text>
+  <text x="430" y="682" text-anchor="middle" fill="#6c7086" font-size="9">市场脉动 · 公司技术栈 · 19工具</text>
+  <text x="430" y="695" text-anchor="middle" fill="#a6adc8" font-size="8" font-family="monospace">get_market_pulse · search_companies</text>
+
+  <!-- MCP 3: JD Intel -->
+  <rect x="570" y="640" width="240" height="60" rx="8" fill="#081a10" stroke="#cba6f7" stroke-opacity="0.5" stroke-width="1.5"/>
+  <text x="690" y="662" text-anchor="middle" fill="#cba6f7" font-size="12" font-weight="700">🟣 JD Intel</text>
+  <text x="690" y="682" text-anchor="middle" fill="#6c7086" font-size="9">7个ATS平台直搜</text>
+  <text x="690" y="695" text-anchor="middle" fill="#a6adc8" font-size="8" font-family="monospace">fetch_jobs · search_registry</text>
+
+  <!-- MCP 4: LinkedIn -->
+  <rect x="830" y="640" width="240" height="60" rx="8" fill="#081a10" stroke="#94e2d5" stroke-opacity="0.5" stroke-width="1.5"/>
+  <text x="950" y="662" text-anchor="middle" fill="#94e2d5" font-size="12" font-weight="700">🔷 LinkedIn Jobs</text>
+  <text x="950" y="682" text-anchor="middle" fill="#6c7086" font-size="9">LinkedIn全球职位 · 无需认证</text>
+  <text x="950" y="695" text-anchor="middle" fill="#a6adc8" font-size="8" font-family="monospace">search_linkedin_jobs</text>
+
+  <!-- MCP 5: Company Research -->
+  <rect x="1090" y="640" width="260" height="60" rx="8" fill="#081a10" stroke="#fab387" stroke-opacity="0.5" stroke-width="1.5"/>
+  <text x="1220" y="662" text-anchor="middle" fill="#fab387" font-size="12" font-weight="700">🟠 Company Research</text>
+  <text x="1220" y="682" text-anchor="middle" fill="#6c7086" font-size="9">公司背景 · 工程文化 · Glassdoor</text>
+  <text x="1220" y="695" text-anchor="middle" fill="#a6adc8" font-size="8" font-family="monospace">search_company_background</text>
+
+  <!-- Data Source Tags -->
+  <rect x="50" y="720" width="240" height="45" rx="6" fill="#0d0d14" stroke="#6c7086" stroke-opacity="0.3" stroke-width="1"/>
+  <text x="170" y="740" text-anchor="middle" fill="#6c7086" font-size="9">📦 20,000+ 公司 · 40+ ATS平台</text>
+  <text x="170" y="757" text-anchor="middle" fill="#6c7086" font-size="9">每小时更新 · AI标注薪资</text>
+
+  <rect x="310" y="720" width="240" height="45" rx="6" fill="#0d0d14" stroke="#6c7086" stroke-opacity="0.3" stroke-width="1"/>
+  <text x="430" y="740" text-anchor="middle" fill="#6c7086" font-size="9">📊 500+ 科技公司 · 80K+ 实时职位</text>
+  <text x="430" y="757" text-anchor="middle" fill="#6c7086" font-size="9">技能趋势 · 薪资基准 · 市场历史</text>
+
+  <rect x="570" y="720" width="240" height="45" rx="6" fill="#0d0d14" stroke="#6c7086" stroke-opacity="0.3" stroke-width="1"/>
+  <text x="690" y="740" text-anchor="middle" fill="#6c7086" font-size="9">🏢 Greenhouse · Lever · Ashby</text>
+  <text x="690" y="757" text-anchor="middle" fill="#6c7086" font-size="9">Workday · SmartRecruiters</text>
+
+  <rect x="830" y="720" width="240" height="45" rx="6" fill="#0d0d14" stroke="#6c7086" stroke-opacity="0.3" stroke-width="1"/>
+  <text x="950" y="735" text-anchor="middle" fill="#f38ba8" font-size="9">⚠️ 注意: 需境外网络环境</text>
+  <text x="950" y="755" text-anchor="middle" fill="#6c7086" font-size="9">LinkedIn反爬虫限制</text>
+
+  <rect x="1090" y="720" width="260" height="45" rx="6" fill="#0d0d14" stroke="#6c7086" stroke-opacity="0.3" stroke-width="1"/>
+  <text x="1220" y="735" text-anchor="middle" fill="#f9e2af" font-size="9">🔑 需要 Serper API Key</text>
+  <text x="1220" y="755" text-anchor="middle" fill="#6c7086" font-size="9">免费 2500次/月 · serper.dev</text>
+
+  <!-- Arrows from agents to MCPs -->
+  <line x1="197" y1="553" x2="170" y2="640" stroke="#89b4fa" stroke-width="1" stroke-opacity="0.3" marker-end="url(#arrowBlue)"/>
+  <line x1="517" y1="553" x2="430" y2="640" stroke="#a6e3a1" stroke-width="1.5" stroke-opacity="0.5" marker-end="url(#arrowGreen)"/>
+  <line x1="517" y1="553" x2="690" y2="640" stroke="#cba6f7" stroke-width="1" stroke-opacity="0.3" marker-end="url(#arrowPurple)"/>
+  <line x1="517" y1="553" x2="950" y2="640" stroke="#94e2d5" stroke-width="1" stroke-opacity="0.3" marker-end="url(#arrowPurple)"/>
+  <line x1="1180" y1="553" x2="1220" y2="640" stroke="#fab387" stroke-width="1" stroke-opacity="0.3" marker-end="url(#arrowPurple)"/>
+
+  <!-- ============================================ -->
+  <!-- LAYER 4: MEMORY & STATE LAYER -->
+  <!-- ============================================ -->
+  <rect x="30" y="805" width="1340" height="105" rx="10" fill="url(#memoryGrad)" stroke="#94e2d5" stroke-opacity="0.2" stroke-width="1.5"/>
+  <text x="50" y="835" fill="#94e2d5" font-size="14" font-weight="700" opacity="0.7">🧠 状态与记忆层 · Memory &amp; State Layer</text>
+
+  <rect x="50" y="850" width="380" height="45" rx="8" fill="#100a18" stroke="#94e2d5" stroke-opacity="0.4" stroke-width="1"/>
+  <text x="240" y="870" text-anchor="middle" fill="#94e2d5" font-size="12" font-weight="600">🧠 Memory MCP Server · 知识图谱</text>
+  <text x="240" y="888" text-anchor="middle" fill="#6c7086" font-size="9">create_entities · create_relations · add_observations · search_nodes</text>
+
+  <rect x="460" y="850" width="380" height="45" rx="8" fill="#100a18" stroke="#94e2d5" stroke-opacity="0.4" stroke-width="1"/>
+  <text x="650" y="870" text-anchor="middle" fill="#94e2d5" font-size="12" font-weight="600">📁 本地记忆文件 · 跨会话持久化</text>
+  <text x="650" y="888" text-anchor="middle" fill="#6c7086" font-size="9">memory/user-profile.md · memory/MEMORY.md · 自动记忆索引</text>
+
+  <rect x="870" y="850" width="480" height="45" rx="8" fill="#100a18" stroke="#94e2d5" stroke-opacity="0.4" stroke-width="1"/>
+  <text x="1110" y="870" text-anchor="middle" fill="#94e2d5" font-size="12" font-weight="600">💬 会话状态 · 对话上下文</text>
+  <text x="1110" y="888" text-anchor="middle" fill="#6c7086" font-size="9">当前任务上下文 · 中间结果缓存 · 用户反馈追踪 · 专家通信记录</text>
+
+  <!-- Arrows from supervisor and agents to memory -->
+  <line x1="840" y1="301" x2="240" y2="850" stroke="#94e2d5" stroke-width="1" stroke-opacity="0.2"/>
+  <line x1="840" y1="301" x2="650" y2="850" stroke="#94e2d5" stroke-width="1" stroke-opacity="0.2"/>
+
+  <!-- ============================================ -->
+  <!-- RIGHT SIDEBAR: KEY / LEGEND -->
+  <!-- ============================================ -->
+  <rect x="30" y="930" width="1340" height="105" rx="10" fill="#0d0d14" stroke="#1e1e2e" stroke-width="1"/>
+  <text x="50" y="955" fill="#6c7086" font-size="11" font-weight="700">图例 Legend</text>
+
+  <!-- Model -->
+  <rect x="50" y="968" width="16" height="16" rx="3" fill="#f9e2af" opacity="0.3"/>
+  <text x="74" y="982" fill="#6c7086" font-size="10">Claude Fable 5 (Supervisor)</text>
+
+  <rect x="260" y="968" width="16" height="16" rx="3" fill="#cba6f7" opacity="0.3"/>
+  <text x="284" y="982" fill="#6c7086" font-size="10">Claude Sonnet 5 (Expert Agents)</text>
+
+  <rect x="500" y="968" width="16" height="16" rx="3" fill="#a6e3a1" opacity="0.3"/>
+  <text x="524" y="982" fill="#6c7086" font-size="10">MCP Protocol (JSON-RPC 2.0)</text>
+
+  <rect x="740" y="968" width="16" height="16" rx="3" fill="#94e2d5" opacity="0.3"/>
+  <text x="764" y="982" fill="#6c7086" font-size="10">Memory / State</text>
+
+  <!-- Line styles -->
+  <line x1="50" y1="1010" x2="100" y2="1010" stroke="#f9e2af" stroke-width="1.5" stroke-opacity="0.5"/>
+  <text x="108" y="1014" fill="#6c7086" font-size="9">Supervisor → Agent</text>
+
+  <line x1="240" y1="1010" x2="290" y2="1010" stroke="#a6e3a1" stroke-width="1.5" stroke-opacity="0.5"/>
+  <text x="298" y="1014" fill="#6c7086" font-size="9">Agent → MCP Data</text>
+
+  <line x1="440" y1="1010" x2="490" y2="1010" stroke="#94e2d5" stroke-width="1" stroke-opacity="0.3" stroke-dasharray="3,2"/>
+  <text x="498" y="1014" fill="#6c7086" font-size="9">Read/Write Memory</text>
+
+  <text x="700" y="1022" fill="#565970" font-size="9">⚡ 阶段1 Expert Agents 并行执行 · 阶段2 基于阶段1结果并行执行 · MCP无认证即用 · 按角色分配模型</text>
+
+</svg>
